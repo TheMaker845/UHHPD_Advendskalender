@@ -71,10 +71,6 @@ for (i,j) in zip(start,end):
 # printter(grid)
 print("There are {0} overlaps".format(count(grid)))
 
-
-
-
-a = np.random.random((16, 16))
 plt.imshow(grid, cmap='hot', interpolation='nearest')
 plt.savefig("Plot.png",dpi=300)
 plt.savefig("Plot_V.eps")
