@@ -2,6 +2,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import time
 globaltime = time.time()
+
 with open ("input.txt", "r") as myfile:
     data=myfile.readlines()
 for i in range(len(data)):
