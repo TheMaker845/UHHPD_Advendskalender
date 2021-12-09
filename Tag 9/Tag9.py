@@ -1,5 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
+import time
+globaltime = time.time()
 with open ("input.txt", "r") as myfile:
     data=myfile.readlines()
 for i in range(len(data)):
@@ -55,18 +57,18 @@ for i in min:
 print(maxval)
 print(uses)
 prod=1
-plt.imshow(grid, cmap='Reds', interpolation='nearest')
-plt.savefig("Plot1.png",dpi=300)
-plt.savefig("Plot_V1.eps")
-plt.show()
+# plt.imshow(grid, cmap='Reds', interpolation='nearest')
+# plt.savefig("Plot1.png",dpi=300)
+# plt.savefig("Plot_V1.eps")
+# plt.show()
 for i in range(len(maxval)):
     prod*=maxval[i]
     for j in uses[i]:
         grid[j[0]][j[1]]=0
 
 print(prod)
-
-plt.imshow(grid, cmap='Reds', interpolation='nearest')
-plt.savefig("Plot.png",dpi=300)
-plt.savefig("Plot_V.eps")
-plt.show()
+print('Runtime: {:2.2f}s'.format(time.time()-globaltime))
+# plt.imshow(grid, cmap='Reds', interpolation='nearest')
+# plt.savefig("Plot.png",dpi=300)
+# plt.savefig("Plot_V.eps")
+# plt.show()

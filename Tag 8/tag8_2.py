@@ -1,6 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
-
+import time
+globaltime = time.time()
 with open ("input.txt", "r") as myfile:
     data=myfile.readlines()
 for i in range(len(data)):
@@ -121,3 +122,4 @@ sum=0
 for (inp,outp) in zip(input,output):
     sum+=int(decomposeblock(inp,outp))
 print("Sum over all = {0}".format(sum))
+print('Runtime: {:2.2f}s'.format(time.time()-globaltime))
