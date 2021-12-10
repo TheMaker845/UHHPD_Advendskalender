@@ -68,3 +68,4 @@ for line in incomp:
     score.append(calcpoints2(check(line,True)))
 # print(score)
 print("Tolal score: {0}".format(np.median(np.array(score))))
+print('Runtime: {:2.2f}s'.format(time.time()-globaltime))
