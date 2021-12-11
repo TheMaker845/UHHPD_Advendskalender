@@ -23,7 +23,7 @@ def check(line, completeness=False):
             elif (line[i] in allowedOpen):
                  syntax.append(line[i])
             else:
-                print("-{0}- Expected {1} , but found {2} instead".format(line,op(syntax[-1]),line[i]))
+                # print("-{0}- Expected {1} , but found {2} instead".format(line,op(syntax[-1]),line[i]))
                 return line[i]
                 break
         else:
@@ -32,7 +32,7 @@ def check(line, completeness=False):
         comp=""
         for i in range(len(syntax)):
             comp+=op(syntax[len(syntax)-1-i])
-        print("-{0}- Complete by adding {1}.".format(line,comp))
+        # print("-{0}- Complete by adding {1}.".format(line,comp))
         return comp
     return "0"
 # check("[(()[<>])]({[<{<<[]>>(")
@@ -68,4 +68,4 @@ for line in incomp:
     score.append(calcpoints2(check(line,True)))
 # print(score)
 print("Tolal score: {0}".format(np.median(np.array(score))))
-print('Runtime: {:2.2f}s'.format(time.time()-globaltime))
+print('Runtime: {:2.3f}s'.format(time.time()-globaltime))
