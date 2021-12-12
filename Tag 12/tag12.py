@@ -50,3 +50,15 @@ for path in paths:
     print(path)
 print("total number of paths: {0}".format(len(paths)))
 print('Runtime: {:2.2f}s'.format(time.time()-globaltime))
+
+# Coords={}
+# for i in range(len(map)):
+#     if  (not map[i][0] in Coords):
+#         Coords[map[i][0]]=[np.random.random()*10,np.random.random()*10]
+# print(Coords)
+# for key in Coords.keys():
+#     plt.scatter(Coords[key][0],Coords[key][1])
+# for path in paths:
+#     for i in range(1,len(path)):
+#         plt.plot([Coords[path[i]][0],Coords[path[i-1]][0]],[Coords[path[i]][1],Coords[path[i-1]][1]])
+# plt.show()
