@@ -30,7 +30,7 @@ for i in string:
     bstack[alphabeth.find(i)]+=1
 
 values=[]
-for q in range(20):
+for q in range(40):
     Rstack=np.zeros(len(inserts))
     for i in range(len(stack)):
         ins=inserts[i,1]
@@ -48,6 +48,10 @@ for q in range(20):
     for b in bstack:
         if not b==0:
             res.append(b)
+    plt.clf()
+    plt.bar(np.arange(len(res)), res, width=0.8, bottom=None, align='center')
+    plt.title("Step "+str(q))
+    plt.pause(0.5)
     val=(max(res)-min(res))
     values.append(val)
 
@@ -62,20 +66,20 @@ for b in bstack:
         res.append(b)
 print(max(res)-min(res))
 print('Runtime: {:2.3f}s'.format(time.time()-globaltime))
-
-def func(x,A,B,D,C):
-    return A*np.exp(B*x+D)+C*x**3
-y=np.array(values)
-maxx=max(y)
-y=y/max(y)
-plt.plot(y,".")
-par,covM=cf(func,np.arange(20),y,bounds=([0,0,-10,-10],[6,1,10,3]))
-print(par)
-print(covM)
-x=np.linspace(0,40,1000)
-plt.plot(x,func(x,*par))
-print(func(40,*par)*maxx/3776553567525.0)
-# plt.plot(x,func(x,9,0.8,2))
-plt.yscale("log")
+#
+# def func(x,A,B,D,C):
+#     return A*np.exp(B*x+D)+C*x**3
+# y=np.array(values)
+# maxx=max(y)
+# y=y/max(y)
+# plt.plot(y,".")
+# par,covM=cf(func,np.arange(20),y,bounds=([0,0,-10,-10],[6,1,10,3]))
+# print(par)
+# print(covM)
+# x=np.linspace(0,40,1000)
+# plt.plot(x,func(x,*par))
+# print(func(40,*par)*maxx/3776553567525.0)
+# # plt.plot(x,func(x,9,0.8,2))
+# plt.yscale("log")
 
 plt.show()
