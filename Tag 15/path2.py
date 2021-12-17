@@ -1,4 +1,5 @@
 import numpy as np
+import matplotlib.pyplot as plt
 
 
 with open ("input.txt", "r") as myfile:
@@ -52,20 +53,23 @@ def pathfinder():
                     ccost[x1,y1]=alt
         del coord[u]
         del dist[u]
-
+    plt.imshow(ccost, cmap='hot', interpolation='nearest')
     print("Lowest Risk:{0}".format(int(ccost[size-1,size-1])))
 print("Part 1")
 pathfinder()
-# bigcave=[]
-# for i in range(5*size):
-#     line=[]
-#     for j in range(5*size):
-#         line.append(int(cave[i%size][j%size]+np.floor(j/size)+np.floor(i/size))%9)
-#     bigcave.append(line)
-# bigcave=np.array(bigcave)
-# bigcave[bigcave[:,:]==0]=9
-# print("Part 2")
-# cave=bigcave
+bigcave=[]
+for i in range(5*size):
+    line=[]
+    for j in range(5*size):
+        line.append(int(cave[i%size][j%size]+np.floor(j/size)+np.floor(i/size))%9)
+    bigcave.append(line)
+bigcave=np.array(bigcave)
+bigcave[bigcave[:,:]==0]=9
+print("Part 2")
+cave=bigcave
+# plt.imshow(ccost, cmap='Reds', interpolation='nearest')
+plt.show()
+
 # pathfinder()
 
 # for i in range(5*size):
