@@ -5,8 +5,10 @@ import matplotlib.pyplot as plt
 # targetx=[20,30]
 # targety=[-10,-5]
 
-targetx=[153,199]
-targety=[-114,-75]
+# targetx=[153,199]
+# targety=[-114,-75]
+targetx=[253,280]
+targety=[-73,-46]
 
 def intarget(x,y):
     if targetx[0]<=x and x<=targetx[1] and targety[0]<=y and y<=targety[1]:
@@ -19,8 +21,8 @@ def shoot(vx,vy):
     hit=1
     pos.append([0,0])
     for i in range(0,1000):
-        if (vx-i*0>0):
-            x+=vx-i*0
+        if (vx-i>0):
+            x+=vx-i
         y+=vy-i
         hit=hit*intarget(x,y)
         pos.append([x,y])
@@ -46,9 +48,9 @@ def findstop(deltax):
 #         maxvals.append(max(r[:,1]))
 # print("Max reched height at {0}".format(max(maxvals)))
 maxvals=[]
-for vx in range(1000):
-    for vy in range(1000):
-        r,hit=shoot(vx,vy-500)
+for vx in range(281):
+    for vy in range(200):
+        r,hit=shoot(vx,vy-74)
         if hit==0:
             plt.plot(r[:,0],r[:,1],"-")
             maxvals.append(max(r[:,1]))
